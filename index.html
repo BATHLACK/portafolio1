@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio - David Ardila</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    // Mostrar/Ocultar secciones
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
+      document.getElementById(id).style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Mostrar proyecto desde el portafolio
+    function openProject(id) {
+      document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
+      document.getElementById(id).style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Lightbox: abrir imagen
+    function openLightbox(src) {
+      const lightbox = document.getElementById("lightbox");
+      const img = document.getElementById("lightbox-img");
+      img.src = src;
+      lightbox.style.display = "flex";
+    }
+
+    // Lightbox: cerrar
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+
+    // Cerrar con tecla ESC
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeLightbox();
+    });
+
+    window.onload = () => showSection("inicio");
+  </script>
+</head>
+<body>
+  <!-- ======= NAVBAR ======= -->
+  <header>
+    <nav class="navbar">
+      <ul class="nav-left">
+        <li><a href="#" onclick="showSection('inicio')">INICIO</a></li>
+        <li><a href="#" onclick="showSection('sobre-mi')">SOBRE MÍ</a></li>
+        <li><a href="#" onclick="showSection('portafolio')">PORTAFOLIO</a></li>
+      </ul>
+      <div class="nav-right"><span>DAVID ARDILA</span></div>
+    </nav>
+  </header>
+
+  <!-- ======= INICIO ======= -->
+<section id="inicio">
+  <div class="fondo">
+    <img src="img/img1.jpg" alt="Fondo artístico" />
+    <div class="texto-sobre">
+      <h2>Bienvenido a mi portafolio</h2>
+      <p>Explora mis proyectos fotográficos, donde la luz, el color y la emoción se
+        encuentran para contar historias únicas.</p>
+    </div>
+  </div>
+
+  <div class="inicio-galeria">
+    <img src="img/img2.jpg" alt="Inicio 1" onclick="openLightbox(this.src)" />
+    <img src="img/img3.jpg" alt="Inicio 2" onclick="openLightbox(this.src)" />
+    <img src="img/img4.jpg" alt="Inicio 3" onclick="openLightbox(this.src)" />
+  </div>
+</section>
+
+
+  <!-- ======= SOBRE MÍ ======= -->
+<section id="sobre-mi">
+  <div class="sobre-mi-contenedor">
+    <div class="sobre-mi-img">
+      <img src="img/mi foto.jpg" alt="Foto de David Ardila" />
+    </div>
+    <div class="sobre-mi-texto">
+      <h1>Sobre mí</h1>
+      <p>
+        Mi nombre es Jan David Ardila, pero me conocen como David, soy productor multimedia y en mi trabajo me enfoco en dar un toque único a cada proyecto. Me gusta combinar creatividad, técnica y narrativa visual para crear experiencias que conecten con las personas. Cada pieza que realizo busca destacar por su identidad y por transmitir un mensaje auténtico que refleje la esencia de cada historia
+      </p>
+      <p>
+        Con un enfoque especial en la fotografía, mi mayor fortaleza y pasión. A través de la cámara busco capturar momentos con intención estética y narrativa, cuidando cada detalle de la composición y la luz. Además, me destaco en el área de la ilustración y el diseño, lo que me permite complementar mis proyectos visuales con una identidad gráfica sólida y creativa. Cuento con conocimientos en programas como Adobe Photoshop, Illustrator, Premiere Pro, Lightroom, Animate y DaVinci Resolve, herramientas que utilizo para potenciar la calidad y el estilo de cada producción
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ======= PORTAFOLIO ======= -->
+  <section id="portafolio">
+    <h1>Portafolio</h1>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" onclick="openProject('proyecto1')">
+        <img src="img/imgp1.jpg" alt="Proyecto sin título 1" />
+        <div class="overlay">
+          <p>(Octubre 2024)</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item" onclick="openProject('proyecto2')">
+        <img src="img/chica1.jpg" alt="Proyecto sin título 2" />
+        <div class="overlay">
+          <p>(Agosto 2025)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= PROYECTO 1 ======= -->
+  <section id="proyecto1" class="project-section">
+  <div class="project-header">
+    <div class="project-info">
+      <h1>Proyecto sin título</h1>
+      <p><strong>Tipo de proyecto:</strong> Fotografía</p>
+      <p><strong>Fecha:</strong> Octubre 2024</p>
+    </div>
+    <div class="project-description">
+      <p>
+        En estas fotografías busco reflejar la belleza que puede encontrarse
+        en medio del caos. A través de la composición y el color, quiero
+        transmitir una sensación de calma que contraste con el desorden o la
+        agitación del entorno.
+      </p>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <div class="gallery-row">
+      <img src="img/imgp1.jpg" alt="Foto 1" />
+      <img src="img/imgp2.jpg" alt="Foto 2" />
+      <img src="img/imgp3.jpg" alt="Foto 3" />
+    </div>
+    <div class="gallery-row">
+      <img src="img/imgp4.jpg" alt="Foto 4" />
+      <img src="img/imgp5.jpg" alt="Foto 5" />
+      <img src="img/imgp6.png" alt="Foto 6" />
+    </div>
+    <img src="img/imgp7.jpg" alt="Foto 7" class="gallery-full" />
+  </div>
+
+  <a href="#" class="back-link" onclick="showSection('portafolio')">← Volver al portafolio</a>
+</section>
+
+
+  <!-- ======= PROYECTO 2 ======= -->
+  <section id="proyecto2" class="project-section">
+  <div class="project-header">
+    <div class="project-info">
+      <h1>Proyecto sin título</h1>
+      <p><strong>Tipo de proyecto:</strong> Fotografía</p>
+      <p><strong>Fecha:</strong> Agosto 2025</p>
+    </div>
+    <div class="project-description">
+      <p>
+        En estas fotografías quiero mostrar a una chica que no teme
+        expresarse, sin importar lo que muestre o lo que la rodee. Su
+        presencia refleja libertad y confianza en sí misma.
+      </p>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <div class="gallery-row">
+      <img src="img/chica1.jpg" alt="Foto 1" />
+      <img src="img/chica2.jpg" alt="Foto 2" />
+      <img src="img/chica3.jpg" alt="Foto 3" />
+    </div>
+    <div class="gallery-row">
+      <img src="img/chca4.jpg" alt="Foto 4" />
+      <img src="img/chica5.jpg" alt="Foto 5" />
+      <img src="img/chica6.jpg" alt="Foto 6" />
+    </div>
+  </div>
+
+  <a href="#" class="back-link" onclick="showSection('portafolio')">← Volver al portafolio</a>
+</section>
+
+
+  <!-- ======= LIGHTBOX ======= -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="imagen ampliada" />
+  </div>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <p>© 2025 hecho por DAVID ARDILA.</p>
+  </footer>
+</body>
+</html>

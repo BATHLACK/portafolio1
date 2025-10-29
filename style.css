@@ -1,0 +1,283 @@
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  color: #333;
+  background: #fff;
+  scroll-behavior: smooth;
+}
+
+/* ======= NAVEGACIÓN ======= */
+header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.nav-left {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-left a {
+  text-decoration: none;
+  color: #777;
+  transition: color 0.3s;
+}
+
+.nav-left a:hover {
+  color: #000;
+}
+
+.nav-right span {
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+/* ======= INICIO ======= */
+.fondo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fondo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(60%);
+}
+
+.texto-sobre {
+  position: relative;
+  z-index: 2;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.texto-sobre h2 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.texto-sobre p {
+  font-size: 20px;
+}
+
+/* ======= GALERÍAS DE PROYECTOS ======= */
+.gallery {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gallery-row img {
+  flex: 1 1 calc(33.333% - 20px);
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.gallery-full {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery-row img {
+    flex: 1 1 100%;
+  }
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+/* ======= SOBRE MÍ con imagen ======= */
+.sobre-mi-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 100px auto;
+  padding: 0 20px;
+  gap: 60px;
+}
+
+.sobre-mi-img img {
+  width: 350px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sobre-mi-texto {
+  flex: 1;
+}
+
+.sobre-mi-texto h1 {
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.sobre-mi-texto p {
+  line-height: 1.7;
+  font-size: 16px;
+  color: #444;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .sobre-mi-contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-mi-img img {
+    width: 80%;
+  }
+}
+
+/* ======= PORTAFOLIO ======= */
+#portafolio {
+  max-width: 1000px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.portfolio-item img {
+  width: 100%;
+  transition: transform 0.4s;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: opacity 0.3s;
+}
+
+.portfolio-item:hover .overlay {
+  opacity: 1;
+}
+
+/* ======= DETALLES DE PROYECTO ======= */
+.project-section {
+  display: none;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 40px;
+}
+
+.project-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.gallery {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gallery-row {
+  display: flex;
+  gap: 20px;
+}
+
+.gallery-row img {
+  width: 50%;
+}
+
+/* ======= FOOTER ======= */
+footer {
+  border-top: 1px solid #ddd;
+  text-align: center;
+  padding: 40px;
+  font-size: 13px;
+  color: #555;
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .inicio-galeria img {
+    width: 90%;
+  }
+
+  .gallery-row {
+    flex-direction: column;
+  }
+
+  .gallery-row img {
+    width: 100%;
+  }
+}
